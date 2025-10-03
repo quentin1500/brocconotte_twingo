@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+    padding: 80px; /* espace réservé pour les boîtes autour */
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.background {
+    display: block;
+    max-width: 600px; /* adapte à ton image */
+    height: auto;
+}
+
+/* overlay et zones */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* évite de bloquer clics sur l'image */
+}
+
+.zone {
+    position: absolute;
+    display: flex;
+    pointer-events: auto; /* autorise clics sur boîtes */
+}
+
+.zone.haut {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+}
+
+.zone.bas {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+}
+
+.zone.gauche {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    flex-direction: column;
+}
+
+.zone.droite {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    flex-direction: column;
+}
+
+/* boîtes uniformes */
+.boite {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #333;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    background: rgba(255,255,255,0.7);
+    margin: 5px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.boite:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,200,0.9);
+}
+
+/* états */
+.boite.dispo { border-color: red; }
+.boite.partiel { border-color: orange; }
+.boite.complet { border-color: green; }
