@@ -12,7 +12,7 @@ body {
 .container {
     position: relative;
     display: inline-block;
-    padding: 80px; /* espace réservé pour les boîtes autour */
+    padding: 150px; /* espace réservé pour les boîtes autour */
     background: #fff;
     border: 2px solid #ccc;
     border-radius: 8px;
@@ -21,7 +21,7 @@ body {
 
 .background {
     display: block;
-    max-width: 600px; /* adapte à ton image */
+    max-width: 1000px; /* adapte à ton image */
     height: auto;
 }
 
