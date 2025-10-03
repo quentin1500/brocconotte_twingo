@@ -92,5 +92,5 @@ body {
 
 /* états */
 .boite.dispo { border-color: red; }
-.boite.partiel { border-color: orange; }
-.boite.complet { border-color: green; }
+.boite.partiel { border-color: orange; background-color: lightyellow;}
+.boite.complet { border-color: green; background-color: darkseagreen; }
