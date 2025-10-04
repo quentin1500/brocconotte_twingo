@@ -6,7 +6,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
@@ -17,11 +17,13 @@ body {
     border: 2px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .background {
     display: block;
-    max-width: 1000px; /* adapte à ton image */
+    max-width: 100%;
     height: auto;
 }
 
@@ -32,13 +34,14 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    pointer-events: none; /* évite de bloquer clics sur l'image */
+    pointer-events: none;
 }
 
 .zone {
     position: absolute;
     display: flex;
-    pointer-events: auto; /* autorise clics sur boîtes */
+    pointer-events: auto;
+    flex-wrap: wrap; /* permet de passer à la ligne si trop de boîtes */
 }
 
 .zone.haut {
@@ -46,6 +49,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     flex-direction: row;
+    justify-content: center;
 }
 
 .zone.bas {
@@ -53,6 +57,12 @@ body {
     left: 50%;
     transform: translateX(-50%);
     flex-direction: row;
+    justify-content: center;
+}
+
+.zone.haut, .zone.bas {
+    width: calc(100% - 270px); /* laisse 270px de marge de chaque côté la taille des boites et de la marge avec le bord */
+    max-width: 1000px; /* ou la largeur de ton image si tu veux aligner */
 }
 
 .zone.gauche {
@@ -60,6 +70,7 @@ body {
     left: 20px;
     transform: translateY(-50%);
     flex-direction: column;
+    align-items: center;
 }
 
 .zone.droite {
@@ -67,6 +78,7 @@ body {
     right: 20px;
     transform: translateY(-50%);
     flex-direction: column;
+    align-items: center;
 }
 
 /* boîtes uniformes */
@@ -84,10 +96,11 @@ body {
     margin: 5px;
     transition: transform 0.2s, background 0.2s;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .boite:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background: rgba(211, 211, 211, 0.60);
 }
 
@@ -95,3 +108,40 @@ body {
 .boite.dispo { border-color: red; }
 .boite.partiel { border-color: orange; background-color: rgba(255, 255, 224, 0.6);}
 .boite.complet { border-color: green; background-color: rgba(143, 188, 143, 0.6); }
+
+/* RESPONSIVE DESIGN */
+
+/* Sur tablette/mobile : on casse la disposition autour de l'image */
+@media (max-width: 1024px) {
+    .container {
+        padding: 20px;
+    }
+
+    .overlay {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .zone {
+        position: static;
+        transform: none;
+        margin: 10px 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .zone.gauche, .zone.droite, .zone.haut, .zone.bas {
+        flex-direction: row;
+        transform: none;
+    }
+
+}
+
+/* Sur très petit mobile (< 480px), on réduit encore */
+@media (max-width: 480px) {
+
+}
