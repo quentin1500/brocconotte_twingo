@@ -5,7 +5,7 @@
 $basePath   = Split-Path -Parent $MyInvocation.MyCommand.Path
 $dataFile   = Join-Path $basePath "data\donnees.csv"
 $template   = Join-Path $basePath "static\template.html"
-$outputFile = Join-Path $basePath "output\page.html"
+$outputFile = Join-Path $basePath "dist\index.html"
 $cssFile    = Join-Path $basePath "static\style.css"
 $jsFile     = Join-Path $basePath "static\script.js"
 
