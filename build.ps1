@@ -8,6 +8,7 @@ $template   = Join-Path $basePath "static\template.html"
 $outputFile = Join-Path $basePath "dist\index.html"
 $cssFile    = Join-Path $basePath "static\style.css"
 $jsFile     = Join-Path $basePath "static\script.js"
+$svgFile     = Join-Path $basePath "static\pieces.svg"
 
 # lecture csv
 $pieces = Import-Csv -Path $dataFile -Delimiter ";"
@@ -34,7 +35,8 @@ foreach ($p in $pieces) {
          data-piece="$($p.Piece)" 
          data-total="$($p.NombreTotal)" 
          data-achete="$($p.NombreAchete)" 
-         data-acheteurs="$($p.Acheteurs)">
+         data-acheteurs="$($p.Acheteurs)"
+         data-svgtype="$($p.SVGType)">
         <span>$($p.Piece)</span>
     </div>
 "@
@@ -46,6 +48,7 @@ $templateContent = Get-Content $template -Raw
 # charger css/js
 $cssContent = Get-Content $cssFile -Raw
 $jsContent  = Get-Content $jsFile -Raw
+$svgContent  = Get-Content $svgFile -Raw
 
 # remplacer placeholders
 $page = $templateContent -replace "{{ZONE_HAUT}}",   $zones["haut"]
@@ -54,6 +57,7 @@ $page = $page -replace "{{ZONE_GAUCHE}}",           $zones["gauche"]
 $page = $page -replace "{{ZONE_DROITE}}",           $zones["droite"]
 $page = $page -replace "{{CSS_INLINE}}", "<style>`r`n$cssContent`r`n</style>"
 $page = $page -replace "{{JS_INLINE}}", "<script>`r`n$jsContent`r`n</script>"
+$page = $page -replace "{{SVG_INLINE}}", "`r`n$svgContent`r`n"
 
 # écrire page
 New-Item -ItemType Directory -Force -Path (Split-Path $outputFile) | Out-Null

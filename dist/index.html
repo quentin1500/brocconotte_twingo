@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@ body {
 .container {
     position: relative;
     display: inline-block;
-    padding: 150px; /* espace réservé pour les boîtes autour */
+    padding: 150px; /* espace rÃ©servÃ© pour les boÃ®tes autour */
     background: #fff;
     border: 2px solid #ccc;
     border-radius: 8px;
@@ -27,10 +27,25 @@ body {
     box-sizing: border-box;
 }
 
+.imgcontainer {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* permet au bloc de suivre la largeur dispo */
+}
+
 .background {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+.imgoverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;   /* suit la largeur de l'image */
+    height: 100%;  /* suit la hauteur de l'image */
+    pointer-events: none; /* pour ne pas bloquer les clics */
 }
 
 /* overlay et zones */
@@ -47,7 +62,7 @@ body {
     position: absolute;
     display: flex;
     pointer-events: auto;
-    flex-wrap: wrap; /* permet de passer à la ligne si trop de boîtes */
+    flex-wrap: wrap; /* permet de passer Ã  la ligne si trop de boÃ®tes */
 }
 
 .zone.haut {
@@ -67,7 +82,7 @@ body {
 }
 
 .zone.haut, .zone.bas {
-    width: calc(100% - 270px); /* laisse 270px de marge de chaque côté la taille des boites et de la marge avec le bord */
+    width: calc(100% - 270px); /* laisse 270px de marge de chaque cÃ´tÃ© la taille des boites et de la marge avec le bord */
     max-width: 1000px; /* ou la largeur de ton image si tu veux aligner */
 }
 
@@ -87,7 +102,7 @@ body {
     align-items: center;
 }
 
-/* boîtes uniformes */
+/* boÃ®tes uniformes */
 .boite {
     width: 120px;
     height: 55px;
@@ -110,10 +125,31 @@ body {
     background: rgba(211, 211, 211, 0.60);
 }
 
-/* états */
+/* Ã©tats */
 .boite.dispo { border-color: red; }
 .boite.partiel { border-color: orange; background-color: rgba(255, 255, 224, 0.6);}
 .boite.complet { border-color: green; background-color: rgba(143, 188, 143, 0.6); }
+
+
+.piece {
+    fill-opacity: 0.3;       /* laisse voir le fond */
+    stroke-width: 2;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* PiÃ¨ces */
+
+.piece.dispo   { fill: red; stroke: darkred; }
+.piece.partiel { fill: orange; stroke: darkorange; }
+.piece.complet { fill: green; stroke: darkgreen; }
+
+.piece.highlight {
+    fill-opacity: 0.6;
+    stroke: rgb(64, 184, 224);
+    stroke-width: 3;
+}
+
 
 /* RESPONSIVE DESIGN */
 
@@ -147,199 +183,328 @@ body {
 
 }
 
-/* Sur très petit mobile (< 480px), on réduit encore */
+/* Sur trÃ¨s petit mobile (< 480px), on rÃ©duit encore */
 @media (max-width: 480px) {
 
 }
+
+
 
 </style>
 </head>
 <body>
     <div class="container">
-        <img src="../voiture.png" alt="Voiture" class="background">
+        <div class="imgcontainer">
+            <img src="../voiture.png" alt="Voiture" class="background">
+
+            
+<svg class="imgoverlay"  viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect id="amortisseur-arriere-1" x="158" y="33" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-arriere-1" x="120" y="163" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-arriere-2" x="242" y="33" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-arriere-2" x="180" y="163" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-avant-1" x="34" y="33" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-avant-1" x="215" y="163" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-avant-2" x="363" y="33" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-avant-2" x="273" y="163" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="ressort-avant-1" x="212" y="166" width="10" height="15" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-1" x="360" y="36" width="10" height="15" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-2" x="31" y="36" width="10" height="15" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-2" x="270" y="166" width="10" height="15" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-arriere-1" x="177" y="166" width="10" height="15" class="piece " data-type="ressort-arriere" />
+    <rect id="ressort-arriere-1" x="239" y="36" width="10" height="15" class="piece " data-type="ressort-arriere" />
+    <rect id="ressort-arriere-2" x="155" y="36" width="10" height="15" class="piece " data-type="ressort-arriere" />
+    <rect id="ressort-arriere-2" x="117" y="166" width="10" height="15" class="piece " data-type="ressort-arriere" />
+    <rect id="protection-arriere-1" x="158" y="36" width="4" height="10" class="piece " data-type="protection-arriere" />
+    <rect id="protection-arriere-1" x="120" y="166" width="4" height="10" class="piece " data-type="protection-arriere" />
+    <rect id="protection-arriere-2" x="242" y="36" width="4" height="10" class="piece " data-type="protection-arriere" />
+    <rect id="protection-arriere-2" x="180" y="166" width="4" height="10" class="piece " data-type="protection-arriere" />
+    <rect id="protection-avant-1" x="34" y="36" width="4" height="10" class="piece " data-type="protection-avant" />
+    <rect id="protection-avant-1" x="215" y="166" width="4" height="10" class="piece " data-type="protection-avant" />
+    <rect id="protection-avant-2" x="363" y="36" width="4" height="10" class="piece " data-type="protection-avant" />
+    <rect id="protection-avant-2" x="273" y="166" width="4" height="10" class="piece " data-type="protection-avant" />
+
+    <circle id="enjoliveur-1" cx="36" cy="62" r="7" class="piece " data-type="enjoliveur"/>
+    <circle id="enjoliveur-2" cx="160" cy="62" r="7" class="piece " data-type="enjoliveur"/>
+    <circle id="enjoliveur-3" cx="244" cy="62" r="7" class="piece " data-type="enjoliveur"/>
+    <circle id="enjoliveur-4" cx="366" cy="62" r="7" class="piece " data-type="enjoliveur"/>
+    
+    <circle id="jante-1" cx="36" cy="62" r="9" class="piece " data-type="jante"/>
+    <circle id="jante-2" cx="160" cy="62" r="9" class="piece " data-type="jante"/>
+    <circle id="jante-3" cx="244" cy="62" r="9" class="piece " data-type="jante"/>
+    <circle id="jante-4" cx="366" cy="62" r="9" class="piece " data-type="jante"/>
+
+
+    <path id="pneu-1" class="piece " data-type="pneu" d="
+        M 36,62
+        m -13,0
+        a 13,13 0 1,0 26,0
+        a 13,13 0 1,0 -26,0
+        M 36,62
+        m -9,0
+        a 9,9 0 1,0 18,0
+        a 9,9 0 1,0 -18,0
+    " fill-rule="evenodd" />
+    <rect id="pneu-1" x="278" y="178" width="9" height="26" class="piece " data-type="pneu"/>
+    <path id="pneu-2" class="piece " data-type="pneu" d="
+        M 160,62
+        m -13,0
+        a 13,13 0 1,0 26,0
+        a 13,13 0 1,0 -26,0
+        M 160,62
+        m -9,0
+        a 9,9 0 1,0 18,0
+        a 9,9 0 1,0 -18,0
+    " fill-rule="evenodd" />
+    <rect id="pneu-2" x="110" y="178" width="9" height="26" class="piece " data-type="pneu"/>
+    <path id="pneu-3" class="piece " data-type="pneu" d="
+        M 244,62
+        m -13,0
+        a 13,13 0 1,0 26,0
+        a 13,13 0 1,0 -26,0
+        M 244,62
+        m -9,0
+        a 9,9 0 1,0 18,0
+        a 9,9 0 1,0 -18,0
+    " fill-rule="evenodd" />
+    <rect id="pneu-3" x="185" y="178" width="9" height="26" class="piece " data-type="pneu"/>
+    <path id="pneu-4" class="piece " data-type="pneu" d="
+        M 366,62
+        m -13,0
+        a 13,13 0 1,0 26,0
+        a 13,13 0 1,0 -26,0
+        M 366,62
+        m -9,0
+        a 9,9 0 1,0 18,0
+        a 9,9 0 1,0 -18,0
+    " fill-rule="evenodd" />
+    <rect id="pneu-1" x="205" y="178" width="9" height="26" class="piece " data-type="pneu"/>
+
+</svg>
+
+
+        </div>
+
         <div class="overlay">
             <div class="zone haut">    <div class="boite dispo" 
          data-piece="Support pour Smartphone" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Support pour Smartphone</span>
     </div>    <div class="boite dispo" 
          data-piece="Twingo" 
          data-total="100" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Twingo</span>
     </div>    <div class="boite dispo" 
          data-piece="Étais de séparation d'habitacle" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Étais de séparation d'habitacle</span>
     </div>    <div class="boite dispo" 
          data-piece="Auto-radio dernier cri" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Auto-radio dernier cri</span>
+    </div>    <div class="boite dispo" 
+         data-piece="Kit stickers Rallye Français Pilote / Copilote" 
+         data-total="1" 
+         data-achete="0" 
+         data-acheteurs=""
+         data-svgtype="">
+        <span>Kit stickers Rallye Français Pilote / Copilote</span>
     </div></div>
             <div class="zone bas">    <div class="boite dispo" 
          data-piece="Pack sécurité" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Pack sécurité</span>
     </div>    <div class="boite dispo" 
          data-piece="Filet de séparation d'habitacle" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Filet de séparation d'habitacle</span>
     </div>    <div class="boite dispo" 
          data-piece="Filtre à huile" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Filtre à huile</span>
     </div>    <div class="boite dispo" 
          data-piece="Essuie glace arrière" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Essuie glace arrière</span>
     </div>    <div class="boite dispo" 
          data-piece="Essuie-glace avant" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Essuie-glace avant</span>
     </div>    <div class="boite dispo" 
          data-piece="Liquide de refroidissement" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Liquide de refroidissement</span>
     </div>    <div class="boite dispo" 
          data-piece="Plaque immatriculation nouvelle génération" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Plaque immatriculation nouvelle génération</span>
     </div>    <div class="boite dispo" 
          data-piece="Plaque protection reservoir" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Plaque protection reservoir</span>
     </div>    <div class="boite dispo" 
          data-piece="Plaque protection moteur" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Plaque protection moteur</span>
     </div></div>
             <div class="zone gauche">    <div class="boite dispo" 
          data-piece="Enjoliveurs de kéké" 
          data-total="4" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="enjoliveur">
         <span>Enjoliveurs de kéké</span>
     </div>    <div class="boite dispo" 
          data-piece="Protection amortisseurs avant" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="protection-avant">
         <span>Protection amortisseurs avant</span>
     </div>    <div class="boite dispo" 
          data-piece="Protection amortisseurs arrière" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="protection-arriere">
         <span>Protection amortisseurs arrière</span>
     </div>    <div class="boite dispo" 
          data-piece="Ressorts avant" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="ressort-avant">
         <span>Ressorts avant</span>
     </div>    <div class="boite dispo" 
          data-piece="Ressort arrière" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="ressort-arriere">
         <span>Ressort arrière</span>
     </div>    <div class="boite dispo" 
          data-piece="Pneus" 
          data-total="6" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="pneu">
         <span>Pneus</span>
     </div>    <div class="boite dispo" 
          data-piece="Jante tôle 14 pouces" 
          data-total="6" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="jante">
         <span>Jante tôle 14 pouces</span>
     </div>    <div class="boite dispo" 
          data-piece="Amortisseurs arrière" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="amortisseur-arriere">
         <span>Amortisseurs arrière</span>
     </div>    <div class="boite dispo" 
          data-piece="Amortisseurs avant" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="amortisseur-avant">
         <span>Amortisseurs avant</span>
     </div></div>
             <div class="zone droite">    <div class="boite dispo" 
          data-piece="Film Covering Jaune" 
          data-total="5" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Film Covering Jaune</span>
     </div>    <div class="boite dispo" 
          data-piece="Film Covering Blanc" 
          data-total="3" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Film Covering Blanc</span>
     </div>    <div class="boite dispo" 
          data-piece="Liquide lave-glace" 
          data-total="3" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Liquide lave-glace</span>
     </div>    <div class="boite dispo" 
          data-piece="Cric de surélévation véhicule" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Cric de surélévation véhicule</span>
     </div>    <div class="boite dispo" 
          data-piece="Compresseur" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Compresseur</span>
     </div>    <div class="boite dispo" 
          data-piece="Filtre à air" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Filtre à air</span>
     </div>    <div class="boite dispo" 
          data-piece="Combinaison de Pilote" 
          data-total="2" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Combinaison de Pilote</span>
     </div>    <div class="boite dispo" 
          data-piece="Courroie de distribution" 
          data-total="1" 
          data-achete="0" 
-         data-acheteurs="">
+         data-acheteurs=""
+         data-svgtype="">
         <span>Courroie de distribution</span>
     </div></div>
         </div>
@@ -349,6 +514,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const boites = document.querySelectorAll(".boite");
 
     boites.forEach(boite => {
+        // adaptation de la taille de police dans les boites
         if (boite.textContent.trim().length > 20) {
             boite.style.fontSize = "14px";
         }
@@ -356,6 +522,48 @@ document.addEventListener("DOMContentLoaded", () => {
         if (boite.textContent.trim().length > 40) {
             boite.style.fontSize = "12px";
         }
+
+        // Gestion des piÃ¨ces en transparence et liens avec boites
+
+        const pieceType = boite.dataset.svgtype;
+        const pieces = document.querySelectorAll(`[data-type="${pieceType}"]`);
+
+        if (pieces.length === 0) return;
+
+
+        console.log(boite.dataset.piece);
+        console.log(pieceType);
+
+        console.log("found");
+
+        // Survol de la boÃ®te
+        boite.addEventListener("mouseenter", () => {
+            boite.classList.add("highlight");
+            pieces.forEach(p => {
+                p.classList.add("highlight")
+                // AmÃ¨ne l'Ã©lÃ©ment en haut de la pile
+                p.parentNode.appendChild(p);
+            });
+
+        });
+        boite.addEventListener("mouseleave", () => {
+            boite.classList.remove("highlight");
+            pieces.forEach(p => p.classList.remove("highlight"));
+        });
+
+        // Survol des piÃ¨ces (chaque Ã©lÃ©ment du SVG)
+        pieces.forEach(piece => {
+            piece.addEventListener("mouseenter", () => {
+                boite.classList.add("highlight");
+                pieces.forEach(p => p.classList.add("highlight"));
+            });
+            piece.addEventListener("mouseleave", () => {
+                boite.classList.remove("highlight");
+                pieces.forEach(p => p.classList.remove("highlight"));
+            });
+        });
+
+        
         boite.addEventListener("click", () => {
             const piece = boite.dataset.piece;
             const total = boite.dataset.total;

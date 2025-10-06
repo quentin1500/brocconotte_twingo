@@ -1,31 +1,32 @@
-Piece;NombreTotal;NombreAchete;Acheteurs;Position
-Support pour Smartphone;1;0;;haut
-Twingo;100;0;;haut
-Étais de séparation d'habitacle;1;0;;haut
-Auto-radio dernier cri;1;0;;haut
-Enjoliveurs de kéké;4;0;;gauche
-Protection amortisseurs avant;2;0;;gauche
-Protection amortisseurs arrière;2;0;;gauche
-Ressorts avant;2;0;;gauche
-Ressort arrière;2;0;;gauche
-Pneus;6;0;;gauche
-Jante tôle 14 pouces;6;0;;gauche
-Amortisseurs arrière;2;0;;gauche
-Amortisseurs avant;2;0;;gauche
-Film Covering Jaune;5;0;;droite
-Film Covering Blanc;3;0;;droite
-Liquide lave-glace;3;0;;droite
-Cric de surélévation véhicule;1;0;;droite
-Compresseur;1;0;;droite
-Filtre à air;1;0;;droite
-Combinaison de Pilote;2;0;;droite
-Courroie de distribution;1;0;;droite
-Pack sécurité;1;0;;bas
-Filet de séparation d'habitacle;1;0;;bas
-Filtre à huile;1;0;;bas
-Essuie glace arrière;1;0;;bas
-Essuie-glace avant;1;0;;bas
-Liquide de refroidissement;2;0;;bas
-Plaque immatriculation nouvelle génération;2;0;;bas
-Plaque protection reservoir;2;0;;bas
-Plaque protection moteur;1;0;;bas
+Piece;NombreTotal;NombreAchete;Acheteurs;Position;SVGType
+Support pour Smartphone;1;0;;haut;
+Twingo;100;0;;haut;
+Étais de séparation d'habitacle;1;0;;haut;
+Auto-radio dernier cri;1;0;;haut;
+Enjoliveurs de kéké;4;0;;gauche;enjoliveur;
+Protection amortisseurs avant;2;0;;gauche;protection-avant;
+Protection amortisseurs arrière;2;0;;gauche;protection-arriere;
+Ressorts avant;2;0;;gauche;ressort-avant;
+Ressort arrière;2;0;;gauche;ressort-arriere;
+Pneus;6;0;;gauche;pneu
+Jante tôle 14 pouces;6;0;;gauche;jante
+Amortisseurs arrière;2;0;;gauche;amortisseur-arriere;
+Amortisseurs avant;2;0;;gauche;amortisseur-avant;
+Film Covering Jaune;5;0;;droite;
+Film Covering Blanc;3;0;;droite;
+Liquide lave-glace;3;0;;droite;
+Cric de surélévation véhicule;1;0;;droite;
+Compresseur;1;0;;droite;
+Filtre à air;1;0;;droite;
+Combinaison de Pilote;2;0;;droite;
+Courroie de distribution;1;0;;droite;
+Pack sécurité;1;0;;bas;
+Filet de séparation d'habitacle;1;0;;bas;
+Filtre à huile;1;0;;bas;
+Essuie glace arrière;1;0;;bas;
+Essuie-glace avant;1;0;;bas;
+Liquide de refroidissement;2;0;;bas;
+Plaque immatriculation nouvelle génération;2;0;;bas;
+Plaque protection reservoir;2;0;;bas;
+Plaque protection moteur;1;0;;bas;
+Kit stickers Rallye Français Pilote / Copilote;1;0;;haut;
