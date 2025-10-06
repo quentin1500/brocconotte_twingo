@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@ body {
 .container {
     position: relative;
     display: inline-block;
-    padding: 150px; /* espace rÃ©servÃ© pour les boÃ®tes autour */
+    padding: 150px; /* espace réservé pour les boîtes autour */
     background: #fff;
     border: 2px solid #ccc;
     border-radius: 8px;
@@ -62,7 +62,7 @@ body {
     position: absolute;
     display: flex;
     pointer-events: auto;
-    flex-wrap: wrap; /* permet de passer Ã  la ligne si trop de boÃ®tes */
+    flex-wrap: wrap; /* permet de passer à la ligne si trop de boîtes */
 }
 
 .zone.haut {
@@ -82,7 +82,7 @@ body {
 }
 
 .zone.haut, .zone.bas {
-    width: calc(100% - 270px); /* laisse 270px de marge de chaque cÃ´tÃ© la taille des boites et de la marge avec le bord */
+    width: calc(100% - 270px); /* laisse 270px de marge de chaque côté la taille des boites et de la marge avec le bord */
     max-width: 1000px; /* ou la largeur de ton image si tu veux aligner */
 }
 
@@ -102,7 +102,7 @@ body {
     align-items: center;
 }
 
-/* boÃ®tes uniformes */
+/* boîtes uniformes */
 .boite {
     width: 120px;
     height: 55px;
@@ -125,7 +125,7 @@ body {
     background: rgba(211, 211, 211, 0.60);
 }
 
-/* Ã©tats */
+/* états */
 .boite.dispo { border-color: red; }
 .boite.partiel { border-color: orange; background-color: rgba(255, 255, 224, 0.6);}
 .boite.complet { border-color: green; background-color: rgba(143, 188, 143, 0.6); }
@@ -138,7 +138,7 @@ body {
     transition: all 0.2s;
 }
 
-/* PiÃ¨ces */
+/* Pièces */
 
 .piece.dispo   { fill: red; stroke: darkred; }
 .piece.partiel { fill: orange; stroke: darkorange; }
@@ -183,7 +183,7 @@ body {
 
 }
 
-/* Sur trÃ¨s petit mobile (< 480px), on rÃ©duit encore */
+/* Sur très petit mobile (< 480px), on réduit encore */
 @media (max-width: 480px) {
 
 }
@@ -280,6 +280,20 @@ body {
     " fill-rule="evenodd" />
     <rect id="pneu-1" x="205" y="178" width="9" height="26" class="piece " data-type="pneu"/>
 
+    <rect id="plaque-immat-1" x="138" y="162" width="28" height="7" class="piece " data-type="plaque-immat" />
+    <rect id="plaque-immat-2" x="231" y="183" width="30" height="7" class="piece " data-type="plaque-immat" />
+
+    <rect id="plaque-protection-reservoir-1" x="124" y="189" width="25" height="2" class="piece " data-type="plaque-protection-reservoir" />
+    <rect id="plaque-protection-reservoir-2" x="155" y="189" width="25" height="2" class="piece " data-type="plaque-protection-reservoir" />
+    <rect id="plaque-protection-reservoir-1" x="110" y="63" width="40" height="2" class="piece " data-type="plaque-protection-reservoir" />
+    <rect id="plaque-protection-reservoir-2" x="254" y="63" width="40" height="2" class="piece " data-type="plaque-protection-reservoir" />
+
+    <rect id="plaque-protection-moteur-1" x="220" y="193" width="52" height="2" class="piece " data-type="plaque-protection-moteur" />
+    <rect id="plaque-protection-moteur-1" x="20" y="63" width="70" height="2" class="piece " data-type="plaque-protection-moteur" />
+    <rect id="plaque-protection-moteur-1" x="312" y="63" width="70" height="2" class="piece " data-type="plaque-protection-moteur" />
+
+
+
 </svg>
 
 
@@ -369,21 +383,21 @@ body {
          data-total="2" 
          data-achete="0" 
          data-acheteurs=""
-         data-svgtype="">
+         data-svgtype="plaque-immat">
         <span>Plaque immatriculation nouvelle génération</span>
     </div>    <div class="boite dispo" 
          data-piece="Plaque protection reservoir" 
          data-total="2" 
          data-achete="0" 
          data-acheteurs=""
-         data-svgtype="">
+         data-svgtype="plaque-protection-reservoir">
         <span>Plaque protection reservoir</span>
     </div>    <div class="boite dispo" 
          data-piece="Plaque protection moteur" 
          data-total="1" 
          data-achete="0" 
          data-acheteurs=""
-         data-svgtype="">
+         data-svgtype="plaque-protection-moteur">
         <span>Plaque protection moteur</span>
     </div></div>
             <div class="zone gauche">    <div class="boite dispo" 
@@ -523,7 +537,7 @@ document.addEventListener("DOMContentLoaded", () => {
             boite.style.fontSize = "12px";
         }
 
-        // Gestion des piÃ¨ces en transparence et liens avec boites
+        // Gestion des pièces en transparence et liens avec boites
 
         const pieceType = boite.dataset.svgtype;
         const pieces = document.querySelectorAll(`[data-type="${pieceType}"]`);
@@ -536,12 +550,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("found");
 
-        // Survol de la boÃ®te
+        // Survol de la boîte
         boite.addEventListener("mouseenter", () => {
             boite.classList.add("highlight");
             pieces.forEach(p => {
                 p.classList.add("highlight")
-                // AmÃ¨ne l'Ã©lÃ©ment en haut de la pile
+                // Amène l'élément en haut de la pile
                 p.parentNode.appendChild(p);
             });
 
@@ -551,7 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pieces.forEach(p => p.classList.remove("highlight"));
         });
 
-        // Survol des piÃ¨ces (chaque Ã©lÃ©ment du SVG)
+        // Survol des pièces (chaque élément du SVG)
         pieces.forEach(piece => {
             piece.addEventListener("mouseenter", () => {
                 boite.classList.add("highlight");

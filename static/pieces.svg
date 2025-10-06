@@ -80,4 +80,18 @@
     " fill-rule="evenodd" />
     <rect id="pneu-1" x="205" y="178" width="9" height="26" class="piece " data-type="pneu"/>
 
+    <rect id="plaque-immat-1" x="138" y="162" width="28" height="7" class="piece " data-type="plaque-immat" />
+    <rect id="plaque-immat-2" x="231" y="183" width="30" height="7" class="piece " data-type="plaque-immat" />
+
+    <rect id="plaque-protection-reservoir-1" x="124" y="189" width="25" height="2" class="piece " data-type="plaque-protection-reservoir" />
+    <rect id="plaque-protection-reservoir-2" x="155" y="189" width="25" height="2" class="piece " data-type="plaque-protection-reservoir" />
+    <rect id="plaque-protection-reservoir-1" x="110" y="63" width="40" height="2" class="piece " data-type="plaque-protection-reservoir" />
+    <rect id="plaque-protection-reservoir-2" x="254" y="63" width="40" height="2" class="piece " data-type="plaque-protection-reservoir" />
+
+    <rect id="plaque-protection-moteur-1" x="220" y="193" width="52" height="2" class="piece " data-type="plaque-protection-moteur" />
+    <rect id="plaque-protection-moteur-1" x="20" y="63" width="70" height="2" class="piece " data-type="plaque-protection-moteur" />
+    <rect id="plaque-protection-moteur-1" x="312" y="63" width="70" height="2" class="piece " data-type="plaque-protection-moteur" />
+
+
+
 </svg>
