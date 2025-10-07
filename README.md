@@ -6,6 +6,7 @@ Chaque pièce de la voiture peut être financée par un ou plusieurs participant
 L’affichage se fait sous la forme :
 
 * d’une **image de fond** (voiture.png) représentant la voiture,
+* d'une **image calque** SVG qui représente les pièces de la voiture,
 * de **boîtes interactives** positionnées autour de l’image, reliées aux pièces correspondantes,
 * de codes couleurs indiquant l’état des pièces :
 
@@ -13,7 +14,7 @@ L’affichage se fait sous la forme :
   * **Orange** : partiellement achetée
   * **Vert** : totalement achetée
 
-Un clic sur une boîte affiche les informations détaillées (progression et noms des acheteurs).
+Un clic sur une boîte affiche les informations détaillées (progression, noms des acheteurs et image de la pièce).
 
 ---
 
@@ -23,9 +24,10 @@ Un clic sur une boîte affiche les informations détaillées (progression et nom
 /projet
    /data
       donnees.csv          # fichier de données
-   /output
-      page.html            # fichier HTML généré automatiquement
+   /dist
+      index.html            # fichier HTML généré automatiquement
    /static
+      pieces.svg           # image svg qui sert de calque aux pièces
       style.css            # styles (couleurs, positions, effets)
       script.js            # interactions (clics, survols)
       template.html        # squelette HTML
@@ -39,7 +41,7 @@ Un clic sur une boîte affiche les informations détaillées (progression et nom
 
 * Windows avec **PowerShell** (aucune installation supplémentaire nécessaire).
 * Un éditeur de texte ou Excel pour éditer `donnees.csv`.
-* Un navigateur pour ouvrir `output/page.html`.
+* Un navigateur pour ouvrir `dist/index.html`.
 
 ---
 
@@ -48,7 +50,7 @@ Un clic sur une boîte affiche les informations détaillées (progression et nom
 Le fichier contient une ligne par pièce avec la structure suivante :
 
 ```
-Piece;NombreTotal;NombreAchete;Acheteurs;Position
+Piece;NombreTotal;NombreAchete;Acheteurs;Position;SVGType;image
 ```
 
 * **Piece** : nom de la pièce (ex: `Pneu`)
@@ -56,21 +58,22 @@ Piece;NombreTotal;NombreAchete;Acheteurs;Position
 * **NombreAchete** : nombre déjà achetés (ex: `2`)
 * **Acheteurs** : liste séparée par des virgules des acheteurs (ex: `Alice,Bob`)
 * **Position** : emplacement de la boîte (`haut`, `bas`, `gauche`, `droite`)
+* **SVGType** : le nom de la piece dans le fichier SVG (calque)
+* **image** : le lien vers une image pour illustration
 
 ### Exemple
 
 ```
-Piece;NombreTotal;NombreAchete;Acheteurs;Position
-Pneu;4;2;Alice,Bob;bas
-Portière gauche;1;0;;gauche
-Capot;1;1;Charlie;haut
+Piece;NombreTotal;NombreAchete;Acheteurs;Position;SVGType;image
+Support pour Smartphone;1;2;Éric,Manon;haut;support-smartphone;https://cdn.helloasso.com/img/photos/items/shops/718d2czbz5l._ac_ul375_sr375%20375_-e0f77c36224a49348d7bf0eee5c76403.jpg;
+Twingo;100;0;;haut;;https://cdn.helloasso.com/img/photos/items/shops/twingo-8f910bd913b042c187afae1031e11ab2.png
 ```
 
 ---
 
 ## Génération de la page
 
-1. Ouvre PowerShell dans le dossier `/projet`.
+1. Ouvre PowerShell dans le dossier `/`.
 
 2. Lance le script de génération :
 
@@ -82,27 +85,9 @@ Capot;1;1;Charlie;haut
 
    * lit `data/donnees.csv`
    * applique les données au modèle `static/template.html`
-   * génère le fichier final dans `output/page.html`
+   * génère le fichier final dans `dist/index.html`
 
-4. Ouvre `output/page.html` dans ton navigateur.
-
----
-
-## Personnalisation
-
-* **Image de fond** : remplace `voiture.png` par ton visuel.
-* **Positions des boîtes** : gérées dans `style.css` par les classes `.haut`, `.bas`, `.gauche`, `.droite`.
-* **Couleurs/effets visuels** : à modifier dans `style.css`.
-* **Comportement au clic/survol** : dans `script.js`.
-
----
-
-## Évolutions possibles
-
-* Ajouter plus de positions personnalisées (ex: `roue-avant-gauche`, `moteur`).
-* Remplacer l’alerte par une **fenêtre flottante** avec un style plus visuel.
-* Intégrer une mise à jour automatique (tâche planifiée Windows pour régénérer le HTML toutes les X minutes).
-* Exporter en ligne sur un hébergement web pour partager le projet.
+4. Ouvre `dist/index..html` dans ton navigateur.
 
 ---
 
