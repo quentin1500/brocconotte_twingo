@@ -125,6 +125,10 @@ body {
     background: rgba(211, 211, 211, 0.60);
 }
 
+.boite span {
+    pointer-events: none;
+}
+
 /* Ã©tats */
 .boite.dispo { border-color: red; }
 .boite.partiel { border-color: orange; background-color: rgba(255, 255, 224, 0.6);}
@@ -148,6 +152,45 @@ body {
     fill-opacity: 0.6;
     stroke: rgb(64, 184, 224);
     stroke-width: 3;
+}
+
+/* --- Bloc d'infos sous la voiture --- */
+.piece-info {
+    display: none; /* cachÃ© par dÃ©faut */
+    margin-top: 20px;
+    background: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+/* Contenu du bloc */
+.piece-info-content {
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+}
+
+.piece-info h2 {
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.piece-info-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -179,6 +222,17 @@ body {
     .zone.gauche, .zone.droite, .zone.haut, .zone.bas {
         flex-direction: row;
         transform: none;
+    }
+
+    .zone.haut, .zone.bas {
+        width: 100% 
+    }
+
+    .piece-info-content {
+        width: 95%;
+    }
+    .piece-info {
+        padding: 15px;
     }
 
 }
@@ -321,7 +375,17 @@ body {
 
 
         </div>
-
+        
+        <!-- FenÃªtre d'informations (initialement masquÃ©e) -->
+        <div id="piece-info" class="piece-info">
+            <div class="piece-info-content">
+                <span id="piece-info-close" class="piece-info-close">&times;</span>
+                <h2 id="piece-info-title"></h2>
+                <p><strong>Progression :</strong> <span id="piece-info-progress"></span></p>
+                <p><strong>Acheteurs :</strong> <span id="piece-info-acheteurs"></span></p>
+            </div>
+        </div>
+        
         <div class="overlay">
             <div class="zone haut">    <div class="boite dispo" 
          data-piece="Support pour Smartphone" 
@@ -569,47 +633,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Survol de la boÃ®te
             boite.addEventListener("mouseenter", () => {
-                boite.classList.add("highlight");
-                pieces.forEach(p => {
-                    p.classList.add("highlight")
-                    // AmÃ¨ne l'Ã©lÃ©ment en haut de la pile
-                    p.parentNode.appendChild(p);
-                });
+                highlightPiece(boite, pieces);
 
             });
             boite.addEventListener("mouseleave", () => {
-                boite.classList.remove("highlight");
-                pieces.forEach(p => p.classList.remove("highlight"));
+                unlightPiece(boite,pieces);
             });
 
             // Survol des piÃ¨ces (chaque Ã©lÃ©ment du SVG)
             pieces.forEach(piece => {
                 piece.addEventListener("mouseenter", () => {
-                    boite.classList.add("highlight");
-                    pieces.forEach(p => p.classList.add("highlight"));
+                    highlightPiece(boite, pieces)
                 });
                 piece.addEventListener("mouseleave", () => {
-                    boite.classList.remove("highlight");
-                    pieces.forEach(p => p.classList.remove("highlight"));
+                    unlightPiece(boite,pieces);
                 });
             });
         }
         
         boite.addEventListener("click", () => {
+
+            // RÃ©cupÃ¨re les Ã©lÃ©ments du bloc dâ€™infos
+            const infoBox = document.getElementById("piece-info");
+            const infoTitle = document.getElementById("piece-info-title");
+            const infoProgress = document.getElementById("piece-info-progress");
+            const infoAcheteurs = document.getElementById("piece-info-acheteurs");
+
+            // Injection des donnÃ©es
             const piece = boite.dataset.piece;
             const total = boite.dataset.total;
             const achete = boite.dataset.achete;
             const acheteurs = boite.dataset.acheteurs;
 
-            alert(
-                `${piece}\n` +
-                `Progression: ${achete}/${total}\n` +
-                `Acheteurs: ${acheteurs || "aucun"}`
-            );
+            infoTitle.textContent = piece;
+            infoProgress.textContent = `${achete}/${total}`;
+            infoAcheteurs.textContent = acheteurs || "aucun";
+
+            // Affiche le bloc dâ€™infos
+            infoBox.style.display = "block";
+
         });
     });
 });
 
+
+// Fermeture du bloc dâ€™infos
+const infoBox = document.getElementById("piece-info");
+const infoClose = document.getElementById("piece-info-close");
+
+document.addEventListener("click", (e) => {
+    // Si on clique sur le bouton Ã— ou Ã  lâ€™extÃ©rieur du bloc
+    if (e.target === infoClose || (!infoBox.contains(e.target) && !e.target.classList.contains("boite"))) {
+        infoBox.style.display = "none";
+    }
+});
+
+function highlightPiece(boite, pieces){
+    boite.classList.add("highlight");
+    pieces.forEach(p => {
+        p.classList.add("highlight")
+        // AmÃ¨ne l'Ã©lÃ©ment en haut de la pile
+        p.parentNode.appendChild(p);
+    });
+}
+
+function unlightPiece(boite, pieces){
+    boite.classList.remove("highlight");
+    pieces.forEach(p => p.classList.remove("highlight"));
+}
 </script>
 </body>
 </html>
