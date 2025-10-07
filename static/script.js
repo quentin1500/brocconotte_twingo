@@ -20,43 +20,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Survol de la boîte
             boite.addEventListener("mouseenter", () => {
-                boite.classList.add("highlight");
-                pieces.forEach(p => {
-                    p.classList.add("highlight")
-                    // Amène l'élément en haut de la pile
-                    p.parentNode.appendChild(p);
-                });
+                highlightPiece(boite, pieces);
 
             });
             boite.addEventListener("mouseleave", () => {
-                boite.classList.remove("highlight");
-                pieces.forEach(p => p.classList.remove("highlight"));
+                unlightPiece(boite,pieces);
             });
 
             // Survol des pièces (chaque élément du SVG)
             pieces.forEach(piece => {
                 piece.addEventListener("mouseenter", () => {
-                    boite.classList.add("highlight");
-                    pieces.forEach(p => p.classList.add("highlight"));
+                    highlightPiece(boite, pieces)
                 });
                 piece.addEventListener("mouseleave", () => {
-                    boite.classList.remove("highlight");
-                    pieces.forEach(p => p.classList.remove("highlight"));
+                    unlightPiece(boite,pieces);
                 });
             });
         }
         
         boite.addEventListener("click", () => {
+
+            // Récupère les éléments du bloc d’infos
+            const infoBox = document.getElementById("piece-info");
+            const infoTitle = document.getElementById("piece-info-title");
+            const infoProgress = document.getElementById("piece-info-progress");
+            const infoAcheteurs = document.getElementById("piece-info-acheteurs");
+
+            // Injection des données
             const piece = boite.dataset.piece;
             const total = boite.dataset.total;
             const achete = boite.dataset.achete;
             const acheteurs = boite.dataset.acheteurs;
 
-            alert(
-                `${piece}\n` +
-                `Progression: ${achete}/${total}\n` +
-                `Acheteurs: ${acheteurs || "aucun"}`
-            );
+            infoTitle.textContent = piece;
+            infoProgress.textContent = `${achete}/${total}`;
+            infoAcheteurs.textContent = acheteurs || "aucun";
+
+            // Affiche le bloc d’infos
+            infoBox.style.display = "block";
+
         });
     });
 });
+
+
+// Fermeture du bloc d’infos
+const infoBox = document.getElementById("piece-info");
+const infoClose = document.getElementById("piece-info-close");
+
+document.addEventListener("click", (e) => {
+    // Si on clique sur le bouton × ou à l’extérieur du bloc
+    if (e.target === infoClose || (!infoBox.contains(e.target) && !e.target.classList.contains("boite"))) {
+        infoBox.style.display = "none";
+    }
+});
+
+function highlightPiece(boite, pieces){
+    boite.classList.add("highlight");
+    pieces.forEach(p => {
+        p.classList.add("highlight")
+        // Amène l'élément en haut de la pile
+        p.parentNode.appendChild(p);
+    });
+}
+
+function unlightPiece(boite, pieces){
+    boite.classList.remove("highlight");
+    pieces.forEach(p => p.classList.remove("highlight"));
+}
