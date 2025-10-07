@@ -1,0 +1,120 @@
+<svg class="imgoverlay"  viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect id="amortisseur-arriere-1" x="158" y="33" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-arriere-1" x="120" y="163" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-arriere-2" x="242" y="33" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-arriere-2" x="180" y="163" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-avant-1" x="34" y="33" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-avant-1" x="215" y="163" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-avant-2" x="363" y="33" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-avant-2" x="273" y="163" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="ressort-avant-1" x="212" y="166" width="10" height="15" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-1" x="360" y="36" width="10" height="15" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-2" x="31" y="36" width="10" height="15" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-2" x="270" y="166" width="10" height="15" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-arriere-1" x="177" y="166" width="10" height="15" class="piece " data-type="ressort-arriere" />
+    <rect id="ressort-arriere-1" x="239" y="36" width="10" height="15" class="piece " data-type="ressort-arriere" />
+    <rect id="ressort-arriere-2" x="155" y="36" width="10" height="15" class="piece " data-type="ressort-arriere" />
+    <rect id="ressort-arriere-2" x="117" y="166" width="10" height="15" class="piece " data-type="ressort-arriere" />
+    <rect id="protection-arriere-1" x="158" y="36" width="4" height="10" class="piece " data-type="protection-arriere" />
+    <rect id="protection-arriere-1" x="120" y="166" width="4" height="10" class="piece " data-type="protection-arriere" />
+    <rect id="protection-arriere-2" x="242" y="36" width="4" height="10" class="piece " data-type="protection-arriere" />
+    <rect id="protection-arriere-2" x="180" y="166" width="4" height="10" class="piece " data-type="protection-arriere" />
+    <rect id="protection-avant-1" x="34" y="36" width="4" height="10" class="piece " data-type="protection-avant" />
+    <rect id="protection-avant-1" x="215" y="166" width="4" height="10" class="piece " data-type="protection-avant" />
+    <rect id="protection-avant-2" x="363" y="36" width="4" height="10" class="piece " data-type="protection-avant" />
+    <rect id="protection-avant-2" x="273" y="166" width="4" height="10" class="piece " data-type="protection-avant" />
+
+    <circle id="enjoliveur-1" cx="36" cy="62" r="7" class="piece " data-type="enjoliveur"/>
+    <circle id="enjoliveur-2" cx="160" cy="62" r="7" class="piece " data-type="enjoliveur"/>
+    <circle id="enjoliveur-3" cx="244" cy="62" r="7" class="piece " data-type="enjoliveur"/>
+    <circle id="enjoliveur-4" cx="366" cy="62" r="7" class="piece " data-type="enjoliveur"/>
+    
+    <circle id="jante-1" cx="36" cy="62" r="9" class="piece " data-type="jante"/>
+    <circle id="jante-2" cx="160" cy="62" r="9" class="piece " data-type="jante"/>
+    <circle id="jante-3" cx="244" cy="62" r="9" class="piece " data-type="jante"/>
+    <circle id="jante-4" cx="366" cy="62" r="9" class="piece " data-type="jante"/>
+
+
+    <path id="pneu-1" class="piece " data-type="pneu" d="
+        M 36,62
+        m -13,0
+        a 13,13 0 1,0 26,0
+        a 13,13 0 1,0 -26,0
+        M 36,62
+        m -9,0
+        a 9,9 0 1,0 18,0
+        a 9,9 0 1,0 -18,0
+    " fill-rule="evenodd" />
+    <rect id="pneu-1" x="278" y="178" width="9" height="26" class="piece " data-type="pneu"/>
+    <path id="pneu-2" class="piece " data-type="pneu" d="
+        M 160,62
+        m -13,0
+        a 13,13 0 1,0 26,0
+        a 13,13 0 1,0 -26,0
+        M 160,62
+        m -9,0
+        a 9,9 0 1,0 18,0
+        a 9,9 0 1,0 -18,0
+    " fill-rule="evenodd" />
+    <rect id="pneu-2" x="110" y="178" width="9" height="26" class="piece " data-type="pneu"/>
+    <path id="pneu-3" class="piece " data-type="pneu" d="
+        M 244,62
+        m -13,0
+        a 13,13 0 1,0 26,0
+        a 13,13 0 1,0 -26,0
+        M 244,62
+        m -9,0
+        a 9,9 0 1,0 18,0
+        a 9,9 0 1,0 -18,0
+    " fill-rule="evenodd" />
+    <rect id="pneu-3" x="185" y="178" width="9" height="26" class="piece " data-type="pneu"/>
+    <path id="pneu-4" class="piece " data-type="pneu" d="
+        M 366,62
+        m -13,0
+        a 13,13 0 1,0 26,0
+        a 13,13 0 1,0 -26,0
+        M 366,62
+        m -9,0
+        a 9,9 0 1,0 18,0
+        a 9,9 0 1,0 -18,0
+    " fill-rule="evenodd" />
+    <rect id="pneu-1" x="205" y="178" width="9" height="26" class="piece " data-type="pneu"/>
+
+    <rect id="plaque-immat-1" x="138" y="162" width="28" height="7" class="piece " data-type="plaque-immat" />
+    <rect id="plaque-immat-2" x="231" y="183" width="30" height="7" class="piece " data-type="plaque-immat" />
+
+    <rect id="plaque-protection-reservoir-1" x="124" y="189" width="25" height="2" class="piece " data-type="plaque-protection-reservoir" />
+    <rect id="plaque-protection-reservoir-2" x="155" y="189" width="25" height="2" class="piece " data-type="plaque-protection-reservoir" />
+    <rect id="plaque-protection-reservoir-1" x="110" y="63" width="40" height="2" class="piece " data-type="plaque-protection-reservoir" />
+    <rect id="plaque-protection-reservoir-2" x="254" y="63" width="40" height="2" class="piece " data-type="plaque-protection-reservoir" />
+
+    <rect id="plaque-protection-moteur-1" x="220" y="193" width="52" height="2" class="piece " data-type="plaque-protection-moteur" />
+    <rect id="plaque-protection-moteur-1" x="20" y="63" width="70" height="2" class="piece " data-type="plaque-protection-moteur" />
+    <rect id="plaque-protection-moteur-1" x="312" y="63" width="70" height="2" class="piece " data-type="plaque-protection-moteur" />
+
+    <rect id="support-smartphone-1" x="330" y="26" width="4" height="6" class="piece " data-type="support-smartphone" />
+
+    <rect id="autoradio-1" x="328" y="40" width="8" height="6" class="piece " data-type="autoradio" />
+
+    <rect id="sticker-rallye-1" x="138" y="15" width="18" height="10" class="piece " data-type="sticker-rallye" />
+
+    <rect id="cric-1" x="300" y="186" width="12" height="14" class="piece " data-type="cric" />
+    <rect id="compresseur-1" x="320" y="186" width="14" height="14" class="piece " data-type="compresseur" />
+    <polygon id="pack-secu-1" points="349 186, 340 200, 358 200" class="piece " data-type="pack-secu" />
+    <rect id="combinaison-1" x="50" y="115" width="35" height="85" class="piece " data-type="combinaison" />
+    
+    <rect id="essuie-glace-avant-1" x="228" y="151" width="45" height="6" class="piece " data-type="essuie-glace-avant" />
+    <polygon id="essuie-glace-arriere-1" points="148 158, 144 158, 144 155, 153 145, 175 145, 175 149, 155 149" class="piece " data-type="essuie-glace-arriere" />
+    
+    <rect id="lave-glace-1" x="265" y="155" width="6" height="8" class="piece " data-type="lave-glace" />
+    <rect id="refroidissement-1" x="272" y="155" width="8" height="8" class="piece " data-type="refroidissement" />
+
+    <rect id="courroie-1" x="225" y="165" width="10" height="15" class="piece " data-type="courroie" />
+
+    <rect id="filtre-huile-1" x="225" y="185" width="5" height="5" class="piece " data-type="filtre-huile" />
+    <rect id="filtre-air-1" x="235" y="160" width="8" height="8" class="piece " data-type="filtre-air" />
+
+    <rect id="filet-1" x="222" y="135" width="47" height="25" class="piece " data-type="filet" />
+    <polygon id="etais-1" points="222 135, 269 135, 269 145, 256 145, 256 160, 235 160, 235 145, 222 145" width="47" height="25" class="piece " data-type="etais" />
+
+</svg>
