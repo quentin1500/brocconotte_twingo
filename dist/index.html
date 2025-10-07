@@ -154,17 +154,6 @@ body {
     stroke-width: 3;
 }
 
-/* --- FenÃªtre modale --- */
-.modal-overlay {
-    display: none; /* cachÃ©e par dÃ©faut */
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
 /* --- Bloc d'infos sous la voiture --- */
 .piece-info {
     display: none; /* cachÃ© par dÃ©faut */
@@ -675,7 +664,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const total = boite.dataset.total;
             const achete = boite.dataset.achete;
             const acheteurs = boite.dataset.acheteurs;
-            
+
             infoTitle.textContent = piece;
             infoProgress.textContent = `${achete}/${total}`;
             infoAcheteurs.textContent = acheteurs || "aucun";
@@ -698,7 +687,6 @@ document.addEventListener("click", (e) => {
         infoBox.style.display = "none";
     }
 });
-
 
 function highlightPiece(boite, pieces){
     boite.classList.add("highlight");
