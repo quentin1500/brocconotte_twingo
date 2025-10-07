@@ -148,9 +148,9 @@ body {
     stroke-width: 3;
 }
 
-/* --- Bloc d'infos sous la voiture --- */
+/* --- Bloc principal d'information --- */
 .piece-info {
-    display: none; /* caché par défaut */
+    display: none;
     margin-top: 20px;
     background: #f9f9f9;
     border: 2px solid #ccc;
@@ -162,18 +162,44 @@ body {
     z-index: 10;
 }
 
-/* Contenu du bloc */
-.piece-info-content {
-    /* max-width: 600px; */
+/* --- Disposition interne : image + texte --- */
+.piece-info-body {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    max-width: 700px;
     margin: auto;
-    position: relative;
 }
 
-.piece-info h2 {
+/* --- Image --- */
+.piece-info-image-container {
+    flex: 0 0 150px; /* largeur fixe de la colonne image */
+    text-align: center;
+}
+
+.piece-info-image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* --- Texte --- */
+.piece-info-text {
+    flex: 1;
+}
+
+.piece-info-text h2 {
     margin-top: 0;
     font-size: 1.4em;
 }
 
+/* --- Bouton de fermeture --- */
 .piece-info-close {
     position: absolute;
     top: 10px;
@@ -181,12 +207,6 @@ body {
     font-size: 1.5em;
     cursor: pointer;
 }
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 
 /* RESPONSIVE DESIGN */
 
@@ -227,6 +247,17 @@ body {
     }
     .piece-info {
         padding: 15px;
+    }
+    .piece-info-body {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .piece-info-image-container {
+        flex: none;
+        width: 80%;
+        max-width: 250px;
     }
 
 }
