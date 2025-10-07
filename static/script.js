@@ -39,22 +39,40 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
         boite.addEventListener("click", () => {
+            
+
+            highlightPiece(boite, pieces);
 
             // Récupère les éléments du bloc d’infos
             const infoBox = document.getElementById("piece-info");
             const infoTitle = document.getElementById("piece-info-title");
             const infoProgress = document.getElementById("piece-info-progress");
             const infoAcheteurs = document.getElementById("piece-info-acheteurs");
+            const imageElement = document.getElementById("piece-info-image");
+            const imageContainer = document.getElementById("piece-info-image-container");
+            
 
             // Injection des données
             const piece = boite.dataset.piece;
             const total = boite.dataset.total;
             const achete = boite.dataset.achete;
             const acheteurs = boite.dataset.acheteurs;
+            const image = boite.dataset.image;
 
             infoTitle.textContent = piece;
             infoProgress.textContent = `${achete}/${total}`;
             infoAcheteurs.textContent = acheteurs || "aucun";
+            
+            
+            // Gestion de l'image
+            if (image) {
+                imageElement.src = image;
+                imageContainer.style.display = "block";
+            } else {
+                imageElement.src = "";
+                imageContainer.style.display = "none";
+            }
+
 
             // Affiche le bloc d’infos
             infoBox.style.display = "block";
@@ -77,11 +95,14 @@ document.addEventListener("click", (e) => {
 
 function highlightPiece(boite, pieces){
     boite.classList.add("highlight");
-    pieces.forEach(p => {
-        p.classList.add("highlight")
-        // Amène l'élément en haut de la pile
-        p.parentNode.appendChild(p);
-    });
+    console.log("Highlight "+boite.dataset.piece)
+    if (pieces.length > 0) {
+        pieces.forEach(p => {
+            p.classList.add("highlight")
+            // Amène l'élément en haut de la pile
+            p.parentNode.appendChild(p);
+        });
+    }
 }
 
 function unlightPiece(boite, pieces){

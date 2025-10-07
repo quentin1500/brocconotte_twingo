@@ -36,7 +36,8 @@ foreach ($p in $pieces) {
          data-total="$($p.NombreTotal)" 
          data-achete="$($p.NombreAchete)" 
          data-acheteurs="$($p.Acheteurs)"
-         data-svgtype="$($p.SVGType)">
+         data-svgtype="$($p.SVGType)"
+         data-image="$($p.image)">
         <span>$($p.Piece)</span>
     </div>
 "@
