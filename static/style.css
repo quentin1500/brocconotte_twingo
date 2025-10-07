@@ -148,6 +148,19 @@ body {
     stroke-width: 3;
 }
 
+/* Highlight persistant (sélection après clic) */
+.boite.highlight-selected {
+    border-color: gold !important;
+    background-color: rgba(255, 215, 0, 0.25);
+    transform: scale(1.05);
+}
+
+.piece.highlight-selected {
+    fill-opacity: 0.6;
+    stroke: gold;
+    stroke-width: 3;
+}
+
 /* --- Bloc principal d'information --- */
 .piece-info {
     display: none;
