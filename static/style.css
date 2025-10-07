@@ -17,7 +17,7 @@ body {
     border: 2px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    max-width: 80%;
+    max-width: 100%;
     box-sizing: border-box;
 }
 
@@ -81,7 +81,7 @@ body {
 }
 
 .zone.gauche {
-    top: 50%;
+    top: 440px;
     left: 20px;
     transform: translateY(-50%);
     flex-direction: column;
@@ -89,7 +89,7 @@ body {
 }
 
 .zone.droite {
-    top: 50%;
+    top: 440px;
     right: 20px;
     transform: translateY(-50%);
     flex-direction: column;
@@ -164,7 +164,7 @@ body {
 
 /* Contenu du bloc */
 .piece-info-content {
-    max-width: 600px;
+    /* max-width: 600px; */
     margin: auto;
     position: relative;
 }
