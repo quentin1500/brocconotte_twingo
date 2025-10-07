@@ -92,6 +92,29 @@
     <rect id="plaque-protection-moteur-1" x="20" y="63" width="70" height="2" class="piece " data-type="plaque-protection-moteur" />
     <rect id="plaque-protection-moteur-1" x="312" y="63" width="70" height="2" class="piece " data-type="plaque-protection-moteur" />
 
+    <rect id="support-smartphone-1" x="330" y="26" width="4" height="6" class="piece " data-type="support-smartphone" />
 
+    <rect id="autoradio-1" x="328" y="40" width="8" height="6" class="piece " data-type="autoradio" />
+
+    <rect id="sticker-rallye-1" x="138" y="15" width="18" height="10" class="piece " data-type="sticker-rallye" />
+
+    <rect id="cric-1" x="300" y="186" width="12" height="14" class="piece " data-type="cric" />
+    <rect id="compresseur-1" x="320" y="186" width="14" height="14" class="piece " data-type="compresseur" />
+    <polygon id="pack-secu-1" points="349 186, 340 200, 358 200" class="piece " data-type="pack-secu" />
+    <rect id="combinaison-1" x="50" y="115" width="35" height="85" class="piece " data-type="combinaison" />
+    
+    <rect id="essuie-glace-avant-1" x="228" y="151" width="45" height="6" class="piece " data-type="essuie-glace-avant" />
+    <polygon id="essuie-glace-arriere-1" points="148 158, 144 158, 144 155, 153 145, 175 145, 175 149, 155 149" class="piece " data-type="essuie-glace-arriere" />
+    
+    <rect id="lave-glace-1" x="265" y="155" width="6" height="8" class="piece " data-type="lave-glace" />
+    <rect id="refroidissement-1" x="272" y="155" width="8" height="8" class="piece " data-type="refroidissement" />
+
+    <rect id="courroie-1" x="225" y="165" width="10" height="15" class="piece " data-type="courroie" />
+
+    <rect id="filtre-huile-1" x="225" y="185" width="5" height="5" class="piece " data-type="filtre-huile" />
+    <rect id="filtre-air-1" x="235" y="160" width="8" height="8" class="piece " data-type="filtre-air" />
+
+    <rect id="filet-1" x="222" y="135" width="47" height="25" class="piece " data-type="filet" />
+    <polygon id="etais-1" points="222 135, 269 135, 269 145, 256 145, 256 160, 235 160, 235 145, 222 145" width="47" height="25" class="piece " data-type="etais" />
 
 </svg>

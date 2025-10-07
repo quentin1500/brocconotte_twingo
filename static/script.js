@@ -16,41 +16,35 @@ document.addEventListener("DOMContentLoaded", () => {
         const pieceType = boite.dataset.svgtype;
         const pieces = document.querySelectorAll(`[data-type="${pieceType}"]`);
 
-        if (pieces.length === 0) return;
+        if (pieces.length > 0) {
 
-
-        console.log(boite.dataset.piece);
-        console.log(pieceType);
-
-        console.log("found");
-
-        // Survol de la boîte
-        boite.addEventListener("mouseenter", () => {
-            boite.classList.add("highlight");
-            pieces.forEach(p => {
-                p.classList.add("highlight")
-                // Amène l'élément en haut de la pile
-                p.parentNode.appendChild(p);
-            });
-
-        });
-        boite.addEventListener("mouseleave", () => {
-            boite.classList.remove("highlight");
-            pieces.forEach(p => p.classList.remove("highlight"));
-        });
-
-        // Survol des pièces (chaque élément du SVG)
-        pieces.forEach(piece => {
-            piece.addEventListener("mouseenter", () => {
+            // Survol de la boîte
+            boite.addEventListener("mouseenter", () => {
                 boite.classList.add("highlight");
-                pieces.forEach(p => p.classList.add("highlight"));
+                pieces.forEach(p => {
+                    p.classList.add("highlight")
+                    // Amène l'élément en haut de la pile
+                    p.parentNode.appendChild(p);
+                });
+
             });
-            piece.addEventListener("mouseleave", () => {
+            boite.addEventListener("mouseleave", () => {
                 boite.classList.remove("highlight");
                 pieces.forEach(p => p.classList.remove("highlight"));
             });
-        });
 
+            // Survol des pièces (chaque élément du SVG)
+            pieces.forEach(piece => {
+                piece.addEventListener("mouseenter", () => {
+                    boite.classList.add("highlight");
+                    pieces.forEach(p => p.classList.add("highlight"));
+                });
+                piece.addEventListener("mouseleave", () => {
+                    boite.classList.remove("highlight");
+                    pieces.forEach(p => p.classList.remove("highlight"));
+                });
+            });
+        }
         
         boite.addEventListener("click", () => {
             const piece = boite.dataset.piece;
