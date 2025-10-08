@@ -31,7 +31,7 @@ foreach ($p in $pieces) {
     }
 
     $zones[$p.Position] += @"
-    <div class="boite $etat" 
+    <button class="boite $etat" 
          data-piece="$($p.Piece)" 
          data-total="$($p.NombreTotal)" 
          data-achete="$($p.NombreAchete)" 
@@ -39,7 +39,7 @@ foreach ($p in $pieces) {
          data-svgtype="$($p.SVGType)"
          data-image="$($p.image)">
         <span>$($p.Piece)</span>
-    </div>
+    </button>
 "@
 }
 
