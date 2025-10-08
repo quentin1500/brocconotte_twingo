@@ -21,9 +21,15 @@ body {
     box-sizing: border-box;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1480px) {
     .container {
         padding: 90px 150px 90px
+    }
+}
+
+@media (max-width: 1320px) {
+    .container {
+        max-width: 100%;
     }
 }
 
