@@ -161,64 +161,85 @@ body {
     stroke-width: 3;
 }
 
-/* --- Bloc principal d'information --- */
+/* === INFO BOX (fiche pièce) === */
 .piece-info {
-    display: none;
-    margin-top: 20px;
-    background: #f9f9f9;
-    border: 2px solid #ccc;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    animation: slideDown 0.3s ease;
-    position: relative;
-    z-index: 10;
+  display: none;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* --- Disposition interne : image + texte --- */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Contenu interne (image + texte côte à côte) */
 .piece-info-body {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 20px;
-    max-width: 700px;
-    margin: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
 }
 
-/* --- Image --- */
+/* Colonne image */
 .piece-info-image-container {
-    flex: 0 0 150px; /* largeur fixe de la colonne image */
-    text-align: center;
+  flex: 0 0 180px;
+  text-align: center;
 }
 
 .piece-info-image-container img {
-    width: 100%;
-    height: auto;
-    max-height: 150px;
-    object-fit: contain;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* --- Texte --- */
+/* Colonne texte */
 .piece-info-text {
-    flex: 1;
+  flex: 1;
 }
 
 .piece-info-text h2 {
-    margin-top: 0;
-    font-size: 1.4em;
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #222;
+  margin-bottom: 10px;
 }
 
-/* --- Bouton de fermeture --- */
+.piece-info-text p {
+  margin: 6px 0;
+  font-size: 1em;
+  color: #444;
+}
+
+.piece-info-text strong {
+  color: #111;
+}
+
+/* Bouton de fermeture */
 .piece-info-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5em;
-    cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 1.6em;
+  color: #777;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.piece-info-close:hover {
+  color: #000;
 }
 
 /* RESPONSIVE DESIGN */
@@ -255,23 +276,17 @@ body {
         width: 100% 
     }
 
-    .piece-info-content {
-        width: 95%;
-    }
-    .piece-info {
-        padding: 15px;
-    }
     .piece-info-body {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
 
-    .piece-info-image-container {
-        flex: none;
-        width: 80%;
-        max-width: 250px;
-    }
+  .piece-info-image-container {
+    flex: none;
+    width: 70%;
+    max-width: 220px;
+  }
 
 }
 

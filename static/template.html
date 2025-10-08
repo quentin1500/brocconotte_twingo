@@ -15,23 +15,19 @@
         
         <!-- Fenêtre d'informations (initialement masquée) -->
         <div id="piece-info" class="piece-info">
-            <div class="piece-info-content">
-                <span id="piece-info-close" class="piece-info-close">&times;</span>
-                <h2 id="piece-info-title"></h2>
+        <span id="piece-info-close" class="piece-info-close">&times;</span>
 
-                <!-- 🖼️ Image -->
-                <div id="piece-info-image-container" class="piece-info-image-container">
-                    <img id="piece-info-image" src="" alt="Image de la pièce" />
-                </div>
-
-                <!-- 📄 Texte -->
-                <div class="piece-info-text">
-                    <h2 id="piece-info-title"></h2>
-                    <p><strong>Progression :</strong> <span id="piece-info-progress"></span></p>
-                    <p><strong>Acheteurs :</strong> <span id="piece-info-acheteurs"></span></p>
-                </div>
-
+        <div class="piece-info-body">
+            <div id="piece-info-image-container" class="piece-info-image-container">
+            <img id="piece-info-image" src="" alt="Image de la pièce" />
             </div>
+
+            <div class="piece-info-text">
+            <h2 id="piece-info-title"></h2>
+            <p><strong>Progression :</strong> <span id="piece-info-progress"></span></p>
+            <p><strong>Acheteurs :</strong> <span id="piece-info-acheteurs"></span></p>
+            </div>
+        </div>
         </div>
         
         <div class="overlay">
