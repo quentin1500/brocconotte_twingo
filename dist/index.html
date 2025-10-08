@@ -18,13 +18,19 @@ body {
 .container {
     position: relative;
     display: inline-block;
-    padding: 150px; /* espace rÃ©servÃ© pour les boÃ®tes autour */
+    padding: 90px 150px 150px 150px; /* espace rÃ©servÃ© pour les boÃ®tes autour */
     background: #fff;
     border: 2px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    max-width: 100%;
+    max-width: 80%;
     box-sizing: border-box;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 90px 150px 90px
+    }
 }
 
 .imgcontainer {
@@ -71,6 +77,8 @@ body {
     transform: translateX(-50%);
     flex-direction: row;
     justify-content: center;
+    width: 100%;
+    max-width: 1000px; /* ou la largeur de ton image si tu veux aligner */
 }
 
 .zone.bas {
@@ -79,15 +87,11 @@ body {
     transform: translateX(-50%);
     flex-direction: row;
     justify-content: center;
-}
-
-.zone.haut, .zone.bas {
     width: calc(100% - 270px); /* laisse 270px de marge de chaque cÃ´tÃ© la taille des boites et de la marge avec le bord */
     max-width: 1000px; /* ou la largeur de ton image si tu veux aligner */
 }
 
 .zone.gauche {
-    top: 440px;
     left: 20px;
     transform: translateY(-50%);
     flex-direction: column;
@@ -95,8 +99,10 @@ body {
 }
 
 .zone.droite {
-    top: 440px;
     right: 20px;
+}
+.zone.droite, .zone.gauche {
+    top: 380px;
     transform: translateY(-50%);
     flex-direction: column;
     align-items: center;
@@ -251,7 +257,7 @@ body {
 /* RESPONSIVE DESIGN */
 
 /* Sur tablette/mobile : on casse la disposition autour de l'image */
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
     .container {
         padding: 20px;
     }
@@ -281,12 +287,6 @@ body {
     .zone.haut, .zone.bas {
         width: 100% 
     }
-
-    .piece-info-body {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
 
   .piece-info-image-container {
     flex: none;
