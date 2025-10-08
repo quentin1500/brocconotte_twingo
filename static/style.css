@@ -136,7 +136,7 @@ body {
 }
 
 /* états */
-.boite.dispo { border-color: red; }
+.boite.dispo { border-color: red; background-color: rgba(224, 54, 54, 0.6); }
 .boite.partiel { border-color: orange; background-color: rgba(255, 255, 224, 0.6);}
 .boite.complet { border-color: green; background-color: rgba(143, 188, 143, 0.6); }
 
