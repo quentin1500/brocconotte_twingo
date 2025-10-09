@@ -1,0 +1,51 @@
+name: Build & Deploy github.io
+
+on:
+  push:
+    branches: ['main'] # Déclenchement uniquement sur main
+#   schedule: # Pour plannifier des taches
+#     - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+#   id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest  # car ton script est un .ps1 (PowerShell)
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      
+      - name: Configurer PowerShell
+        shell: pwsh
+        run: |
+          Write-Host "Version PowerShell : $($PSVersionTable.PSVersion)"
+
+      - name: Build
+        shell: pwsh
+        run: |
+          ./build.ps1
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: 'dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
