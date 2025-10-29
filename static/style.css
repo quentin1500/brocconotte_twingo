@@ -219,7 +219,7 @@ body {
 /* Contenu interne (image + texte côte à côte) */
 .piece-info-body {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 25px;
 }
 
@@ -242,6 +242,11 @@ body {
 /* Colonne texte */
 .piece-info-text {
   flex: 1;
+  display: flex;
+  flex-direction: column;  /* empile verticalement */
+  justify-content: flex-start; /* le contenu normal en haut */
+  position: relative;
+  height: auto;
 }
 
 .piece-info-text h2 {
@@ -259,6 +264,30 @@ body {
 
 .piece-info-text strong {
   color: #111;
+}
+
+/* Zone du texte d’accroche en bas */
+.piece-info-bottom {
+  margin-top: auto; /* pousse vers le bas */
+  font-size: 0.95em;
+  color: #333;
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+}
+
+.piece-info-bottom p {
+  margin: 1px
+}
+
+.piece-info-bottom a {
+  color: #0077cc;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.piece-info-bottom a:hover {
+  color: #005fa3;
+  text-decoration: none;
 }
 
 /* Bouton de fermeture */
