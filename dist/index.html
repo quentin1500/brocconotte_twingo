@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Projet participatif - Voiture</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="favicon.png">
     <style>
 body {
     font-family: Arial, sans-serif;
@@ -12,10 +15,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    flex-direction: column; /* Permet dâ€™empiler le bandeau et le container */
+}
+
+.bandeau-info {
+    width: 100%;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    line-height: 1.5;
+    font-size: 1em;
+    border-bottom: 3px solid #ffcc00;
+}
+
+.bandeau-info a {
+    color: #ffcc00;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.bandeau-info a:hover {
+    text-decoration: none;
 }
 
 .container {
+    margin-top: 25px; /* espace sous le bandeau */
     position: relative;
     display: inline-block;
     padding: 90px 150px 150px 150px; /* espace rÃ©servÃ© pour les boÃ®tes autour */
@@ -24,7 +50,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     max-width: 80%;
-    box-sizing: border-box;
 }
 
 @media (min-width: 1480px) {
@@ -312,9 +337,19 @@ body {
 </style>
 </head>
 <body>
+    <div class="bandeau-info">
+        <p>
+            <strong>Projet participatif :</strong> aidez-nous à financer et assembler cette voiture ensemble !  
+            Consultez la <a href="https://www.helloasso.com/associations/brocconotte/boutiques/equipement-twingo">boutique en ligne</a> pour réaliser vos achats et nous soutenir.
+            <br>
+            Découvrez ci-dessous l'état de la Twingo virtuelle par rapport à vos participations.
+            <br>
+            Encore un grand merci pour le soutien ! 🙏
+        </p>
+    </div>
     <div class="container">
         <div class="imgcontainer">
-            <img src="../voiture.png" alt="Voiture" class="background">
+            <img src="voiture.png" alt="Voiture" class="background">
 
             
 <svg class="imgoverlay"  viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
@@ -441,13 +476,13 @@ body {
 
         </div>
         
-        <!-- FenÃªtre d'informations (initialement masquÃ©e) -->
+        <!-- Fenêtre d'informations (initialement masquée) -->
         <div id="piece-info" class="piece-info">
         <span id="piece-info-close" class="piece-info-close">&times;</span>
 
         <div class="piece-info-body">
             <div id="piece-info-image-container" class="piece-info-image-container">
-            <img id="piece-info-image" src="" alt="Image de la piÃ¨ce" />
+            <img id="piece-info-image" src="" alt="Image de la pièce" />
             </div>
 
             <div class="piece-info-text">
@@ -489,7 +524,7 @@ body {
          data-achete="0" 
          data-acheteurs=""
          data-svgtype="filet"
-         data-image="c:\Users\Stiff\AppData\Local\Temp\croppedimage-d1005661aaaf4525aa8f64ea9ca04297.png">
+         data-image="https://cdn.helloasso.com/img/photos/items/shops/croppedimage-d1005661aaaf4525aa8f64ea9ca04297.png">
         <span>Filet de séparation d'habitacle</span>
     </button>    <button class="boite dispo" 
          data-piece="Auto-radio dernier cri" 

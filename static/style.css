@@ -6,10 +6,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    flex-direction: column; /* Permet d’empiler le bandeau et le container */
+}
+
+.bandeau-info {
+    width: 100%;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    line-height: 1.5;
+    font-size: 1em;
+    border-bottom: 3px solid #ffcc00;
+}
+
+.bandeau-info a {
+    color: #ffcc00;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.bandeau-info a:hover {
+    text-decoration: none;
 }
 
 .container {
+    margin-top: 25px; /* espace sous le bandeau */
     position: relative;
     display: inline-block;
     padding: 90px 150px 150px 150px; /* espace réservé pour les boîtes autour */
@@ -18,7 +41,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     max-width: 80%;
-    box-sizing: border-box;
 }
 
 @media (min-width: 1480px) {

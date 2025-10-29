@@ -1,3 +1,4 @@
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 # build.ps1
 # Génère une page HTML autonome (style + script inclus) basée sur donnees.csv et template.html
 
@@ -44,21 +45,20 @@ foreach ($p in $pieces) {
 }
 
 # charger template
-$templateContent = Get-Content $template -Raw
-
+$templateContent = Get-Content $template -Raw -Encoding UTF8
 # charger css/js
 $cssContent = Get-Content $cssFile -Raw
 $jsContent  = Get-Content $jsFile -Raw
 $svgContent  = Get-Content $svgFile -Raw
 
 # remplacer placeholders
-$page = $templateContent -replace "{{ZONE_HAUT}}",   $zones["haut"]
-$page = $page -replace "{{ZONE_BAS}}",              $zones["bas"]
-$page = $page -replace "{{ZONE_GAUCHE}}",           $zones["gauche"]
-$page = $page -replace "{{ZONE_DROITE}}",           $zones["droite"]
-$page = $page -replace "{{CSS_INLINE}}", "<style>`r`n$cssContent`r`n</style>"
-$page = $page -replace "{{JS_INLINE}}", "<script>`r`n$jsContent`r`n</script>"
-$page = $page -replace "{{SVG_INLINE}}", "`r`n$svgContent`r`n"
+$page = $templateContent -replace "{{ZONE_HAUT}}",    $zones["haut"]
+$page = $page -replace "{{ZONE_BAS}}",     $zones["bas"]
+$page = $page -replace "{{ZONE_GAUCHE}}",  $zones["gauche"]
+$page = $page -replace "{{ZONE_DROITE}}",  $zones["droite"]
+$page = $page -replace "{{CSS_INLINE}}",   "<style>`r`n$cssContent`r`n</style>"
+$page = $page -replace "{{JS_INLINE}}",    "<script>`r`n$jsContent`r`n</script>"
+$page = $page -replace "{{SVG_INLINE}}",   "`r`n$svgContent`r`n"
 
 # écrire page
 New-Item -ItemType Directory -Force -Path (Split-Path $outputFile) | Out-Null
