@@ -6,8 +6,28 @@ document.addEventListener("DOMContentLoaded", () => {
     boites.forEach(boite => {
         // Ajuste la taille de police selon la longueur du texte
         const len = boite.textContent.trim().length;
-        if (len > 40) boite.style.fontSize = "12px";
-        else if (len > 20) boite.style.fontSize = "14px";
+        if (len > 40) {
+            console.log(boite.style.fontSize);
+            if (window.matchMedia("(max-width: 1080px)").matches) {
+                console.log("Écran inférieur à 1080px");
+                boite.style.fontSize = "x-large";
+            }
+            else{
+                console.log("Écran supérieur ou égal à 1080px");
+                boite.style.fontSize = "12px";
+            }
+        }
+        else if (len > 20) {
+            console.log(boite.style.fontSize);
+            if (window.matchMedia("(max-width: 1080px)").matches) {
+                console.log("Écran inférieur à 1080px");
+                boite.style.fontSize = "xx-large";
+            }
+            else{
+                console.log("Écran supérieur ou égal à 1080px");
+                boite.style.fontSize = "14px";
+            }
+        }
 
         const pieceType = boite.dataset.svgtype;
         const pieces = document.querySelectorAll(`[data-type="${pieceType}"]`);

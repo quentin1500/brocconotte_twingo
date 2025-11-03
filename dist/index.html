@@ -318,6 +318,11 @@ body {
 
 /* Sur tablette/mobile : on casse la disposition autour de l'image */
 @media (max-width: 1080px) {
+
+    html {
+        font-size: 30px;
+    }
+
     .container {
         padding: 20px;
     }
@@ -328,6 +333,12 @@ body {
         flex-direction: column;
         align-items: center;
         margin-top: 20px;
+    }
+
+    .boite {
+        width: 240px;
+        height: 110px;
+        font-size: larger;
     }
 
     .zone {
@@ -743,11 +754,11 @@ body {
          data-svgtype="refroidissement"
          data-image="https://cdn.helloasso.com/img/photos/items/shops/thumb-efab09ac5de4402da5ee9e6b55c148de.jpg">
         <span>Liquide de refroidissement</span>
-    </button>    <button class="boite dispo" 
+    </button>    <button class="boite complet" 
          data-piece="Cric de surélévation véhicule" 
          data-total="1" 
-         data-achete="0" 
-         data-acheteurs=""
+         data-achete="1" 
+         data-acheteurs="Anne Coadou"
          data-svgtype="cric"
          data-image="https://cdn.helloasso.com/img/photos/items/shops/croppedimage-ca8844b7c6b54c24b24fe314c71e4a30.png">
         <span>Cric de surélévation véhicule</span>
@@ -795,8 +806,28 @@ document.addEventListener("DOMContentLoaded", () => {
     boites.forEach(boite => {
         // Ajuste la taille de police selon la longueur du texte
         const len = boite.textContent.trim().length;
-        if (len > 40) boite.style.fontSize = "12px";
-        else if (len > 20) boite.style.fontSize = "14px";
+        if (len > 40) {
+            console.log(boite.style.fontSize);
+            if (window.matchMedia("(max-width: 1080px)").matches) {
+                console.log("Ã‰cran infÃ©rieur Ã  1080px");
+                boite.style.fontSize = "x-large";
+            }
+            else{
+                console.log("Ã‰cran supÃ©rieur ou Ã©gal Ã  1080px");
+                boite.style.fontSize = "12px";
+            }
+        }
+        else if (len > 20) {
+            console.log(boite.style.fontSize);
+            if (window.matchMedia("(max-width: 1080px)").matches) {
+                console.log("Ã‰cran infÃ©rieur Ã  1080px");
+                boite.style.fontSize = "xx-large";
+            }
+            else{
+                console.log("Ã‰cran supÃ©rieur ou Ã©gal Ã  1080px");
+                boite.style.fontSize = "14px";
+            }
+        }
 
         const pieceType = boite.dataset.svgtype;
         const pieces = document.querySelectorAll(`[data-type="${pieceType}"]`);

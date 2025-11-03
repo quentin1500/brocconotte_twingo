@@ -309,6 +309,11 @@ body {
 
 /* Sur tablette/mobile : on casse la disposition autour de l'image */
 @media (max-width: 1080px) {
+
+    html {
+        font-size: 30px;
+    }
+
     .container {
         padding: 20px;
     }
@@ -319,6 +324,12 @@ body {
         flex-direction: column;
         align-items: center;
         margin-top: 20px;
+    }
+
+    .boite {
+        width: 240px;
+        height: 110px;
+        font-size: larger;
     }
 
     .zone {
