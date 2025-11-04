@@ -7,10 +7,10 @@
     <rect id="amortisseur-avant-1" x="215" y="163" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
     <rect id="amortisseur-avant-2" x="363" y="33" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
     <rect id="amortisseur-avant-2" x="273" y="163" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
-    <rect id="ressort-avant-1" x="212" y="166" width="10" height="15" class="piece " data-type="ressort-avant" />
-    <rect id="ressort-avant-1" x="360" y="36" width="10" height="15" class="piece " data-type="ressort-avant" />
-    <rect id="ressort-avant-2" x="31" y="36" width="10" height="15" class="piece " data-type="ressort-avant" />
-    <rect id="ressort-avant-2" x="270" y="166" width="10" height="15" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-1" x="212" y="166" width="10" height="20" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-1" x="360" y="36" width="10" height="20" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-2" x="31" y="36" width="10" height="20" class="piece " data-type="ressort-avant" />
+    <rect id="ressort-avant-2" x="270" y="166" width="10" height="20" class="piece " data-type="ressort-avant" />
     <rect id="ressort-arriere-1" x="177" y="166" width="10" height="15" class="piece " data-type="ressort-arriere" />
     <rect id="ressort-arriere-1" x="239" y="36" width="10" height="15" class="piece " data-type="ressort-arriere" />
     <rect id="ressort-arriere-2" x="155" y="36" width="10" height="15" class="piece " data-type="ressort-arriere" />
