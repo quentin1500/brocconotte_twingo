@@ -1,12 +1,12 @@
 <svg class="imgoverlay"  viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <rect id="amortisseur-arriere-1" x="158" y="33" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
-    <rect id="amortisseur-arriere-1" x="120" y="163" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
-    <rect id="amortisseur-arriere-2" x="242" y="33" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
-    <rect id="amortisseur-arriere-2" x="180" y="163" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
-    <rect id="amortisseur-avant-1" x="35" y="33" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
-    <rect id="amortisseur-avant-1" x="215" y="163" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
-    <rect id="amortisseur-avant-2" x="363" y="33" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
-    <rect id="amortisseur-avant-2" x="273" y="163" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-arriere-1" x="158" y="38" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-arriere-1" x="120" y="168" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-arriere-2" x="242" y="38" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-arriere-2" x="180" y="168" width="4" height="25" class="piece " data-type="amortisseur-arriere"/>
+    <rect id="amortisseur-avant-1" x="35" y="38" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-avant-1" x="215" y="168" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-avant-2" x="363" y="38" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
+    <rect id="amortisseur-avant-2" x="273" y="168" width="4" height="25" class="piece " data-type="amortisseur-avant"/>
     <rect id="ressort-avant-1" x="212" y="166" width="10" height="20" class="piece " data-type="ressort-avant" />
     <rect id="ressort-avant-1" x="360" y="36" width="10" height="20" class="piece " data-type="ressort-avant" />
     <rect id="ressort-avant-2" x="32" y="36" width="10" height="20" class="piece " data-type="ressort-avant" />
